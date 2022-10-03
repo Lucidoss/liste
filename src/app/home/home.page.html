@@ -1,20 +1,22 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="unselectable">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Liste des films
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+<ion-content [fullscreen]="true" class="unselectable">
+  <ion-item *ngFor="let item of listefilm" class="ion-activatable ripple-parent" (click)="affDetail(item)">
+    <ion-label>
+      <h2>{{item.title}}</h2>
+      <p>{{item.year}}</p>
+    </ion-label>
+    <ion-avatar>
+      <img alt="Photo non contractuelle" src="{{item.posterUrl}}" />
+    </ion-avatar>
+  </ion-item>
+</ion-content>  
